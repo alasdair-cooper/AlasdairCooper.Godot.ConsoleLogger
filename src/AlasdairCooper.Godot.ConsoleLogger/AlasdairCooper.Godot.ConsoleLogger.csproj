@@ -8,17 +8,17 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <PackageVersion>1.0.0</PackageVersion>
+        <PackageVersion>1.0.1</PackageVersion>
         <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageIcon>Pelican.jpg</PackageIcon>
+        <PackageIcon>Icon.jpg</PackageIcon>
         <PackageTags>Godot;Logging;</PackageTags>
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>https://github.com/alasdair-cooper/AlasdairCooper.Godot.ConsoleLogger.git</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="../../content/Pelican.jpg" Pack="true" Visible="false" PackagePath="" />
+        <None Include="../../content/Icon.jpg" Pack="true" Visible="false" PackagePath="" />
         <None Include="../../README.md" Pack="true" Visible="false" PackagePath="" />
     </ItemGroup>
 
