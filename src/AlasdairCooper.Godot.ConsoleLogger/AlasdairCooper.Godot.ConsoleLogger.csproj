@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageVersion>1.0.0</PackageVersion>
+        <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>Pelican.jpg</PackageIcon>
+        <PackageTags>Godot;Logging;</PackageTags>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/alasdair-cooper/AlasdairCooper.Godot.ConsoleLogger.git</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="../../content/Pelican.jpg" Pack="true" Visible="false" PackagePath="" />
+        <None Include="../../README.md" Pack="true" Visible="false" PackagePath="" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="GodotSharp" Version="4.1.1" />
+      <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.1" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="7.0.0" />
+    </ItemGroup>
+
+</Project>
