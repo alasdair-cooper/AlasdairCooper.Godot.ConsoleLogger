@@ -17,4 +17,22 @@ using AlasdairCooper.Godot.ConsoleLogger.Extensions;
 builder.Services.AddLogging(c => c.AddGodot());
 ```
 
+## Configuration
 
+You can configure the log levels of individual categories if you configure with an `appsettings.json` like so:
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information"
+    },
+    "GodotConsole": {
+      "LogLevel": {
+        "Default": "Error",
+        "Lorem.Ipsum": "Debug"
+      }
+    }
+  }
+}
+```

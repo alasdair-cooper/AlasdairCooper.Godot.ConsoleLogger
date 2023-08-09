@@ -20,20 +20,28 @@ public sealed class GodotLogger : ILogger
     {
         if (!IsEnabled(logLevel)) return;
 
+        var config = _getCurrentConfig();
+
+        var exceptionString = exception is not null ? $" - {exception}" : string.Empty;
+        
+        GD.PrintRich($"[color={config.GetColorForLogLevel(logLevel).ToLower()}] [b][{_name}][/b] {formatter(state, exception)}{exceptionString}[/color]");
+
         var message = $"[{_name}] {formatter(state, exception)}";
 
-        Action log = logLevel switch
+        if (exception is not null) message += exceptionString;
+        
+        switch (logLevel)
         {
-            LogLevel.Trace or LogLevel.Debug or LogLevel.Information => () => GD.Print(message),
-            LogLevel.Warning => () => GD.PushWarning(message),
-            LogLevel.Error or LogLevel.Critical => () => GD.PushError(message),
-            _ => () => { },
-        };
-
-        log();
+            case LogLevel.Error or LogLevel.Critical:
+                GD.PushError(message);
+                break;
+            case LogLevel.Warning:
+                GD.PushWarning(message);
+                break;
+        }
     }
 
-    public bool IsEnabled(LogLevel logLevel) => logLevel >= _getCurrentConfig().LogLevel;
+    public bool IsEnabled(LogLevel logLevel) => logLevel is not LogLevel.None;
 
     public IDisposable? BeginScope<TState>(TState state) where TState : notnull => default;
 }
